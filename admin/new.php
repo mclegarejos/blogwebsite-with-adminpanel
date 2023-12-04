@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("../db.php");
 ?>
 <!doctype html>
 <html lang="en">
@@ -40,13 +41,13 @@ session_start();
     <form>
         <div class="form-group">
             <label>TITLE</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="title">
         </div>
         <div class="form-group">
             <label>CONTENT</label>
-            <textarea class="form-control" rows="3"></textarea>
+            <textarea class="form-control" rows="3" name="content"></textarea>
         </div>
-        <button type="button" class="btn btn-primary">Publish</button>
+        <input type="submit" class="btn btn-primary" name="submit" value="Publish">
     </form>
 </div>
 
@@ -58,3 +59,19 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
+<?php
+if(isset($_GET["submit"])){
+    $title = $_GET["title"];
+    $content = $_GET["content"];
+    
+    $sql = "INSERT INTO posts (title, content) VALUES ('".$title."', '".$content."')";
+    if(!mysqli_query($conn, $sql)){
+        echo "Something went wrong";
+    }else{
+        echo "New post recorded";
+    }
+}
+
+
+
+?>
