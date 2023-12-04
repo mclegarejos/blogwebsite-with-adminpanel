@@ -11,26 +11,29 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>MY BLOG</title>
   </head>
+
   <body>
 
     <!--MENU -->
-    <nav class="navbar navbar-expand-lg navbar-light mynav">
+  <nav class="navbar navbar-expand-lg navbar-light mynav">
   <a class="navbar-brand" href="index.php"><img width="100px" src="img/logo.png"></a>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
         <a class="nav-link" href="index.php">POST<span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="about.php">ABOUT ME</a>
-      </li>
-
+        <li class="nav-item active">
+          <a class="nav-link" href="about.php">ABOUT ME</a>
+        </li>
     </ul>
   </div>
 </nav>
+
 <!-- CONTENT -->
 <div class="container">
   <div class="row">

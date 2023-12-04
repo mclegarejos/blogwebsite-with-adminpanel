@@ -18,20 +18,7 @@ session_start();
 
   <body>
     <div class="container">
-        <div class="admin-login">
-            <form method="post">
-                <div class="form-group">
-                    <label>Admin name</label>
-                    <input type="text" class="form-control" name="adminName">  
-                </div>
 
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="password" class="form-control" name="adminPassword">
-                    </div>
-                        <button type="submit" class="btn btn-primary" name="login">Login</button>
-            </form>
-        </div>
     </div>
 
 
@@ -42,17 +29,3 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
-
-<?php
-if(isset($_POST["login"])){
-    $name = $_POST["adminName"];
-    $psd = $_POST["adminPassword"];
-    if($name =="test" && $psd == "123"){
-        $_SESSION["admin"] = "test";
-        header("Location: post.php");
-    }else{
-        echo "Wrong name or password";
-    }
-
-}
-?>
