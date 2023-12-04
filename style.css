@@ -1,3 +1,8 @@
 .mynav{
     background-color: #F59C48;
 }
+@media all and (max-width: 992px){
+    #asidecolumn{display:none;}
+        
+}
+

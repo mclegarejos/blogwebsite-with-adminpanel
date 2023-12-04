@@ -31,6 +31,13 @@
     </ul>
   </div>
 </nav>
+<!-- CONTENT -->
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-8" style="border:2px solid black">col-8</div>
+    <div class="col-4" id="asidecolumn" style="border:2px solid black">col-4</div>
+  </div>
+</div>
     
 
 
