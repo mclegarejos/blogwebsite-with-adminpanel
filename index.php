@@ -1,3 +1,7 @@
+<?php
+session_start();
+include("db.php");
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -37,7 +41,19 @@
 <!-- CONTENT -->
 <div class="container">
   <div class="row">
-    <div class="col-12 col-lg-8" style="border:2px solid black">col-8</div>
+    <div class="col-12 col-lg-8" style="border:2px solid black">
+    <?php
+        $sql = "SELECT * FROM posts";
+        $result = mysqli_query($conn, $sql);
+
+            if(mysqli_num_rows($result)> 0){
+                while($row = mysqli_fetch_assoc($result)){
+                    echo $row["title"]."<br>".$row["content"];
+                }
+            }
+
+        ?>
+  </div>
     <div class="col-4" id="asidecolumn" style="border:2px solid black">col-4</div>
   </div>
 </div>
