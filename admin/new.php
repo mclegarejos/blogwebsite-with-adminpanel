@@ -36,9 +36,19 @@ session_start();
     </ul>
   </div>
 </nav>
-    <div class="container">
-
-    </div>
+<div class="container">
+    <form>
+        <div class="form-group">
+            <label>TITLE</label>
+            <input type="text" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>CONTENT</label>
+            <textarea class="form-control" rows="3"></textarea>
+        </div>
+        <button type="button" class="btn btn-primary">Publish</button>
+    </form>
+</div>
 
 
 
