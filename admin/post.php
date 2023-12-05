@@ -38,17 +38,20 @@ include("../db.php");
   </div>
 </nav>
     <div class="container">
+
     <?php
         $sql = "SELECT * FROM posts";
         $result = mysqli_query($conn, $sql);
 
             if(mysqli_num_rows($result)> 0){
                 while($row = mysqli_fetch_assoc($result)){
-
                   echo "<br>";
                   echo "<div class='post'>";
                     echo"<h4 class='title'>".$row["title"]."</h4><hr>
                       <p class='content'>".$row["content"]."</p>";
+      ?>
+        <a href="post.php?delete=<?php echo $row["id"]; ?>" class="btn btn-info">Delete</a>
+      <?php
                   echo "</div>"; 
                 }
             }
@@ -68,3 +71,18 @@ include("../db.php");
 
 </body>
 </html>
+
+
+<?php
+  if(isset($_GET["delete"])){
+    $delete = $_GET["delete"];
+      $sql = "DELETE FROM posts WHERE id ='".$delete."'";
+        if(!mysqli_query($conn, $sql)){
+          echo "There was a problem deleting the post";
+        }else{
+          header("Location: post.php");
+        }
+
+
+  }
+?>
