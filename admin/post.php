@@ -38,13 +38,18 @@ include("../db.php");
   </div>
 </nav>
     <div class="container">
-        <?php
+    <?php
         $sql = "SELECT * FROM posts";
         $result = mysqli_query($conn, $sql);
 
             if(mysqli_num_rows($result)> 0){
                 while($row = mysqli_fetch_assoc($result)){
-                    echo $row["title"]."<br>".$row["content"];
+
+                  echo "<br>";
+                  echo "<div class='post'>";
+                    echo"<h4 class='title'>".$row["title"]."</h4><hr>
+                      <p class='content'>".$row["content"]."</p>";
+                  echo "</div>"; 
                 }
             }
 

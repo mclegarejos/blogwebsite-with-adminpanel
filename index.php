@@ -54,7 +54,7 @@ include("db.php");
 
                   echo "<br>";
                   echo "<div class='post'>";
-                    echo"<h4 class='title'>".$row["title"]."</h4>
+                    echo"<h4 class='title'>".$row["title"]."</h4><hr>
                       <p class='content'>".$row["content"]."</p>";
                   echo "</div>"; 
                 }
@@ -62,7 +62,20 @@ include("db.php");
 
         ?>
   </div>
-    <div class="col-4" id="asidecolumn" style="border:2px solid black">col-4</div>
+    <div class="col-4" id="asidecolumn">
+    <?php
+        $sql = "SELECT * FROM posts";
+        $result = mysqli_query($conn, $sql);
+        echo "<br>";
+        echo "<div class='post'>";
+            if(mysqli_num_rows($result)> 0){
+                while($row = mysqli_fetch_assoc($result)){                  
+                    echo"<h4 class='title'>".$row["title"]."</h4><hr>";  
+                }
+            }
+                      echo "</div>"; 
+        ?>
+    </div>
   </div>
 </div>
     
