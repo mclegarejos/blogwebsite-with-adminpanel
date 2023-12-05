@@ -1,7 +1,10 @@
 <?php
 session_start();
 include("../db.php");
+if(isset($_SESSION["admin"]) && $_SESSION["admin"] == "test"){
 ?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -85,4 +88,7 @@ include("../db.php");
 
 
   }
+}else{
+  header("Location: index.php");
+}
 ?>

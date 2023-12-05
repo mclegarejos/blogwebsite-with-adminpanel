@@ -1,6 +1,7 @@
 <?php
 session_start();
 include("../db.php");
+if(isset($_SESSION["admin"]) && $_SESSION["admin"] == "test"){
 if(isset($_GET["success"])){
   echo "New post published";
 }
@@ -77,7 +78,9 @@ if(isset($_GET["submit"])){
       }
     }  
 }
-
+}else{
+  header("Location: index.php");
+}
 
 
 ?>
