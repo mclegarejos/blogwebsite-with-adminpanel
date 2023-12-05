@@ -1,6 +1,9 @@
 <?php
 session_start();
 include("../db.php");
+if(isset($_GET["success"])){
+  echo "New post published";
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -63,13 +66,16 @@ include("../db.php");
 if(isset($_GET["submit"])){
     $title = $_GET["title"];
     $content = $_GET["content"];
-    
-    $sql = "INSERT INTO posts (title, content) VALUES ('".$title."', '".$content."')";
-    if(!mysqli_query($conn, $sql)){
-        echo "Something went wrong";
+    if($title =="" && $content == ""){
+      echo "You can't publish without title or content";
     }else{
-        echo "New post recorded";
-    }
+      $sql = "INSERT INTO posts (title, content) VALUES ('".$title."', '".$content."')";
+      if(!mysqli_query($conn, $sql)){
+          echo "Something went wrong";
+      }else{
+          header("Location: new.php?success");
+      }
+    }  
 }
 
 
