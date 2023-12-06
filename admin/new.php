@@ -51,6 +51,16 @@ if(isset($_GET["success"])){
             <label>CONTENT</label>
             <textarea class="form-control" rows="3" name="content"></textarea>
         </div>
+        <div class="form-group">
+            <label>CATEGORY</label>
+              <select class="form-control" name="category" id="category">
+                <option value="TRAVEL">TRAVEL</option>
+                <option value="FOOD">FOOD</option>
+                <option value="HEALTH">HEALTH</option>
+                <option value="ABOUT">ABOUT ME</option>
+              </select>
+
+        </div>
         <input type="submit" class="btn btn-primary" name="submit" value="Publish">
     </form>
 </div>
@@ -67,10 +77,11 @@ if(isset($_GET["success"])){
 if(isset($_GET["submit"])){
     $title = $_GET["title"];
     $content = $_GET["content"];
+    $category = $_GET["category"];
     if($title =="" && $content == ""){
       echo "You can't publish without title or content";
     }else{
-      $sql = "INSERT INTO posts (title, content) VALUES ('".$title."', '".$content."')";
+      $sql = "INSERT INTO posts (title, content, category) VALUES ('".$title."', '".$content."', '".$category."')";
       if(!mysqli_query($conn, $sql)){
           echo "Something went wrong";
       }else{
