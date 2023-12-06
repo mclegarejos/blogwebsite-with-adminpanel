@@ -58,6 +58,7 @@ if(isset($_GET["success"])){
                 <option value="FOOD">FOOD</option>
                 <option value="HEALTH">HEALTH</option>
                 <option value="ABOUT">ABOUT ME</option>
+                <option value="BLOG">BLOG</option>
               </select>
 
         </div>

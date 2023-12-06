@@ -46,26 +46,43 @@ $category = isset($_GET["category"]) ? $_GET["category"] : '';
   </div>
 </nav>
 
-<!-- CONTENT -->
+
+<!-- TEST CONTENT -->
 <div class="container">
-  <div class="row">
-    <div class="col-12">
-    <?php
-        $sql = "SELECT * FROM posts WHERE category = '$category'";
-        $result = mysqli_query($conn, $sql);
+      <div class="row">
+        <div class="col-12">
+          <?php
+            if (!empty($category)) {
+              $sql = "SELECT * FROM posts WHERE category = '$category'";
+              $result = mysqli_query($conn, $sql);
 
-            if(mysqli_num_rows($result)> 0){
+              if (!$result) {
+                echo "Error: " . mysqli_error($conn);
+              }
+
+              if(mysqli_num_rows($result) > 0){
                 while($row = mysqli_fetch_assoc($result)){
-
                   echo "<br>";
                   echo "<div class='post'>";
-                    echo"<h4 class='title'>".$row["title"]."</h4><hr>
-                      <p class='content'>".$row["content"]."</p>";
+                  echo "<h4 class='title'>".$row["title"]."</h4><hr>
+                        <p class='content'>".$row["content"]."</p>";
                   echo "</div>"; 
                 }
+              } else {
+                echo "<h2>No posts found in the selected category.</h2>";
+              }
+            } else {
+              echo "<h2>Recommendations for You</h2>";
+              echo "<p>Discover interesting blogs in various categories. Choose a category from the navigation above.</p>";
             }
+          ?>
+        </div>
+      </div>
+    </div>
 
-        ?>
+
+
+
 
     
 
